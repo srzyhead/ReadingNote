@@ -1,8 +1,8 @@
 # 走近 Java
 
-### Java虚拟机发展史
+## Java虚拟机发展史
 
-#### Sun HotSpot VM
+### Sun HotSpot VM
 
 在2006年的JavaOne大会上,Sun公苛宣布最终会把Java开源,并在随后的一年,陆
 续将JDK的各个部分(其中当然也包括了HotSpotVM)在GPL协议下公开了源码,并在此
@@ -11,7 +11,7 @@
 在2008年和2009年,Oracle公司分别收购了BEA公司和Sun公司,这样Oracle就同
 时拥有了两款优秀的Java虚拟机:JRockitVM和HotSpotVM。Oracle公司宣布在不久的将来(大约应在发布JDK8的时候)会完成这两款虚拟机的整合工作,使之优势互补。整合的方式大致上是在HotSpot的基础上,移植JRockit的优秀特性,譬如使用JRockit的垃圾回收器与MissionControl服务,使用HotSpot的JIT编译器与混合的运行时系统。
 
-### 展望Java技术的未来
+## 展望Java技术的未来
 
 - 模块化
 
