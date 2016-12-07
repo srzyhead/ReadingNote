@@ -27,3 +27,12 @@
 首先是内存问题,由于指针膨胀和各种数据类型对齐补白的原因,运行于64位系统上的Java应用需要消耗更多的内存,通常要比32位系统额外增加10%〜30%的内存消耗。
 
 在JDK1.6Update14之后,提供了普通对象指针压缩功能(-XX:+UseCompressedOops,这个参数不建议显式设置,建议维持默认由虚拟机的Ergonomics机制自动开启),在执行代码时,动态植人压缩指令以节省内存消耗,但是开启压缩指针会增加执行代码数量,因为所有在Java堆里的、指向Java堆内对象的指针都会被压缩。
+
+## tips
+
+hotspot的server和client两种模式
+
+Java HotSpot Client VM(-client)，为在客户端环境中减少启动时间而优化；
+Java HotSpot Server VM(-server)，为在服务器环境中最大化程序执行速度而设计。
+
+无法通过server模式切换到client模式，说明hotspot在64位的虚拟机上面取消了client模式的服务。

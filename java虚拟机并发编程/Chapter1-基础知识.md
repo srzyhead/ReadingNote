@@ -1,0 +1,56 @@
+# 基础知识
+
+## 并发的问题
+
+### 饥饿
+
+当一个线程等待某个需要运行很长时间或永远无法完成的事件发生时,该线程就会陷人饥饿。为了避免线程陷入饥饿,我们可以为其设计一个等待超时的策略。
+
+### 死锁
+
+两个或两个以上的进程在执行过程中，由于竞争资源或者由于彼此通信而造成的一种阻塞的现象。
+
+#### 产生条件
+
+1. 互斥条件：指进程对所分配到的资源进行排它性使用，即在一段时间内某资源只由一个进程占用。如果此时还有其它进程请求资源，则请求者只能等待，直至占有资源的进程使用完毕释放。
+
+2. 请求和保持条件：指进程已经保持至少一个资源，但又提出了新的资源请求，而该资源已被其它进程占有，此时请求进程阻塞，但又对自己已获得的其它资源保持不放。
+
+3. 不可抢占条件：指进程已获得的资源，在未使用完之前，不能被剥夺，只能在使用完时由自己释放。
+
+4. 环路等待条件：指在发生死锁时，必然存在一个进程——资源的环形链，即进程集合{P0，P1，P2，···，Pn}中的P0正在等待一个P1占用的资源；P1正在等待P2占用的资源，……，Pn正在等待已被P0占用的资源。
+
+#### 针对各个条件的改进方法
+
+1. 改造成非独占资源。
+
+2. 采用资源预先分配策略，即进程运行前申请全部资源，满足则运行，不然就等待，这样就不会占有且申请。
+
+3. 当一进程占有一独占性资源后又申请一独占性资源而无法满足，则退出原占有的资源。
+
+4. 实现资源有序分配策略，对所有设备实现分类编号，所有进程只能采用按序号递增的形式申请资源。
+
+
+### 竞争条件
+
+如果两个线程竞争使用相同的资源或数据,那么我们就将这种情况称为竞争条件(race condition)。竞争条件不仅仅会发生在两个线程同时更改相同数据的场景中,还可能发生在一个线程正在修改某数据而另一个线程同时在读这个数据的时候。
+
+竞争条件主要是由下面两大原因造成的:即时下流行的Just-In-Time(JIT) 编译器的优化以及Java内存模型。
+
+### 内存栅栏
+
+The Java volatile keyword guarantees visibility of changes to variables across threads.
+
+Each thread has its own stack, and so its own copy of variables it can access. When the thread is created, it copies the value of all accessible variables in its own memory. The volatile keyword is used to say to the jvm "Warning, this variable may be modified in an other Thread". Without this keyword, the JVM is free to make some optimizations, like never refreshing those local copies in some threads. The volatile force the thread to update the original variable for each variable.
+
+Never used volatile and never met this problem?
+
+Like all threads issues, it happens under specials circumstances. Really special for this one... My example has big chances to show mainly because the ChangeListener thread is busy, thanks to the loop, and the JVM consider that this thread has no time for updating the local variables. Executing some synchronized methods or adding an other variable which is volatile (or even executing some simple lines of code) could modify the JVM behavior and "correct" this problem...
+
+link : [Java Volatile Keyword Explained by Example](https://dzone.com/articles/java-volatile-keyword-0)
+
+[happens-before俗解](http://ifeve.com/easy-happens-before/)
+
+[Java Volatile Keyword](http://tutorials.jenkov.com/java-concurrency/volatile.html)
+
+volatile不保证原子性，两个功能一是跨越内存栅栏，另一个是避免指令重排序。
