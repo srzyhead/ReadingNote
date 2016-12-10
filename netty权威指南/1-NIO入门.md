@@ -88,58 +88,69 @@ singleExecutor.execute(new TimeServerHandler(socket));
 
 ```java
 // 打开ServerSocketChannel,用于监听客户端的连接,它是所有客户端连接的父管道
-ServerSocketChannel acceptorSvr = ServerSocketChannel.open();
+ServerSocketChannel servChannel = ServerSocketChannel.open();
 // 绑定监听端口,设置连接为非阻塞模式
-acceptorSvr.socket () .bind(newInetSocketAddress (InetAddress.getByName (''IP7/) , port));
-acceptorSvr.configureBlocking (false);
+servChannel.socket().bind(new InetSocketAddress(port), 1024);
+servChannel.configureBlocking(false);
 // 创建Reactor线程,创建多路复用器并启动线程
 Selector selector = Selector.open();
 New Thread(new ReactorTask()) .start ();
 //将ServerSocketChannel注册到Reactor线程的多路复用器Selector上,监听ACCEPT事件
-SelectionKey key = acceptorSvr.register( selector, SelectionKey.OP 一 ACCEPT,
-ioHandler);
+servChannel.register(selector, SelectionKey.OP_ACCEPT);
 //多路复用器在线程run方法的无限循环体内轮询准备就绪的Key
 int num = selector.select();
-Set selectedKeys = selector.selectedKeys ();
-Iterator it = selectedKeys.iterator();
-while (it.hasNext ()) {
-SelectionKey key = (SelectionKey)it.next();
-// ... deal with I/O event ...
+Set<SelectionKey> selectedKeys = selector.selectedKeys();
+Iterator<SelectionKey> it = selectedKeys.iterator();
+while (it.hasNext()) {
+  SelectionKey key = it.next();
+  // ... deal with I/O event ...
 }
 //多路复用器监听到有新的客户端接入,处理新的接入请求,完成TCP三次握手,建立物理链路
-SocketChannel channel = svrChannel.accept();
+ServerSocketChannel ssc = (ServerSocketChannel) key.channel();
+SocketChannel sc = ssc.accept();
 //设置客户端链路为非阻塞模式
-channel.configureBlocking(false);
-channel.socket().setReuseAddress(true);
+sc.configureBlocking(false);
+sc.socket().setReuseAddress(true);
 //将新接入的客户端连接注册到Reactor线程的多路复用器上,监听读操作,读取客户端发送的网络消息
-SelectionKey key = SocketChannel.register( selector, SelectionKey.OP_READ,
-ioHandler);
+sc.register(selector, SelectionKey.OP_READ);
 //异步读取客户端请求消息到缓冲区
-int readNumber = channel.read(receivedBuffer);
+int readBytes = sc.read(readBuffer);
 //对ByteBuffer进行编解码,如果有半包消息指针reset,继续读取后续的报文,将解码成功的泊息封装成Task,投递到业务线程池中,进行业务逻辑编排
 Object message = null;
-while(buffer.hasRemain())
-{
-byteBuffer.mark();
-Object message = decode(byteBuffer);
-if (message == null)
-{
-byteBuffer.reset();
-break;
+while(buffer.hasRemain()) {
+  byteBuffer.mark();
+  Object message = decode(byteBuffer);
+  if (message == null) {
+    byteBuffer.reset();
+    break;
+  }
+  messageList.add(message);
 }
-messageList.add(message );
-}
-if (IbyteBuffer.hasRemain())
-byteBuffer.clear();
+if (IbyteBuffer.hasRemain())  
+  byteBuffer.clear();
 else
-byteBuffer.compact ();
-if (messageList != null & !messageList.isEmpty())
-{
-for (Object messageE : messageList)
-handlerTask(messageE);
+  byteBuffer.compact ();
+if (messageList != null & !messageList.isEmpty()) {
+  for (Object messageE : messageList)
+    handlerTask(messageE);
 }
 //将POJO对象encode成ByteBuffer,调用SocketChannel的异步write接口,将消息异步发送给客户端
 socketChannel.write(buffer);
 ```
 
 ### 基于NI02.0的异步非阻塞(AIO)编程
+
+AsynchronousServerSocketChannel和AsynchronousSocketChannel,它们都由JDK底层的线程池负责回调并驱动读写操作。
+正因为如此,基于NIO2.0新的异步非阻塞Channel进行编程比NIO编程更为简单。
+
+*各种回调函数，杂技的不行 -_-*
+
+## 不选择Java原生NIO编程的原因
+
+- 使用麻烦
+
+- 因为NIO编程涉及到Reactor模式,你必须对多线程和网路编程非常熟悉
+
+- 可靠性能力补齐，工作最和难度都非常大。例如客户端面临断连重连、网络闪断、半包读写、失败缓存、网络拥塞和异常码流的处理等问题
+
+- JDK NIO的BUG，例如炅名昭著的epoll bug
