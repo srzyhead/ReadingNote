@@ -1,8 +1,8 @@
 # netty入门
 
-## netty 服务端开发
+## netty服务端和客户端开发
 
-### 主流程
+### 服务端主流程
 
 ```java
 // 配置服务端Reactor线程组
@@ -54,5 +54,60 @@ public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception 
             System.currentTimeMillis()).toString() : "BAD ORDER";
     ByteBuf resp = Unpooled.copiedBuffer(currentTime.getBytes());
     ctx.write(resp);
+}
+```
+
+### 客户端
+
+```java
+// 配置客户端NIO线程组
+EventLoopGroup group = new NioEventLoopGroup();
+
+// 创建客户端辅助启动类Bootstrap
+Bootstrap b = new Bootstrap();
+
+// 与服务端不同的是,它的Channel需要设置为NioSocketChannel,然后为其添加Handler。此处为了简单直接创建匿名内部类,实现initChannel方法,其作用是当创建NioSocketChannel成功之后,在进行初始化时,将它的ChannelHandler设置到ChannelPipeline中,用于处理网络I/O事件。
+b.group(group).channel(NioSocketChannel.class)
+        .option(ChannelOption.TCP_NODELAY, true)
+        .handler(new ChannelInitializer<SocketChannel>() {
+            @Override
+            public void initChannel(SocketChannel ch) throws Exception {
+                ch.pipeline().addLast(new TimeClientHandler());
+            }
+        });
+
+// 发起异步连接操作
+ChannelFuture f = b.connect(host, port).sync();
+
+// 当代客户端链路关闭
+f.channel().closeFuture().sync();
+
+// 优雅退出，释放NIO线程组
+group.shutdownGracefully();
+```
+
+### TimeClientHandler
+
+```java
+// 当客户端和服务端TCP链路建立成功之后,Netty的NIO线程会调用channelActive方法,调用ChannelHandlerContext的writeAndFlush方法将请求消息发送给服务端。
+@Override
+public void channelActive(ChannelHandlerContext ctx) {
+    ctx.writeAndFlush(firstMessage);
+}
+
+// 当服务端返回应答消息时,channelRead方法被调用,从Netty的ByteBuf中读取并打印应答消息。
+@Override
+public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+    ByteBuf buf = (ByteBuf) msg;
+    byte[] req = new byte[buf.readableBytes()];
+    buf.readBytes(req);
+    String body = new String(req, "UTF-8");
+    System.out.println("Now is : " + body);
+}
+
+// 当发生异常时,释放客户端资源
+@Override
+public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
+    ctx.close();
 }
 ```
