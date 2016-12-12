@@ -29,3 +29,22 @@
 - [Data Model Resource Book](DataModelDesigin.xmind)
 
 介绍行业内主要的数据库建模模板，内容全面扎实，可扩充自己的视野
+
+
+*两种jc配置:*
+
+1. cms+parnew
+
+-Djava.awt.headless=true
+-Xmx1g
+-Xss2048k
+-XX:+UseParNewGC
+-XX:+UseConcMarkSweepGC  
+-XX:CMSInitiatingOccupancyFraction=75
+-XX:+UseCMSInitiatingOccupancyOnly
+-XX:+HeapDumpOnOutOfMemoryError
+-XX:HeapDumpPath=/opt/logstash/heapdump.hprof
+
+2. g1
+
+-server -Xms512m -Xmx2g -Xss256k -XX:+UseG1GC -XX:OnOutOfMemoryError=kill -9 %p
