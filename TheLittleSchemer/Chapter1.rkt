@@ -2,13 +2,6 @@
 
 (require 2htdp/universe)
 
-(define atom?
-        (
-          lambda (x)
-                 (and (not (pair? x))
-                      (not (null? x))
-                      )))
-
 (atom? 'atom)
 (atom? "turkey")
 (atom? 1492)
@@ -25,14 +18,14 @@
 (sexp? `((x y) z))
 
 (define (count-sexp? lst)
-        (if (or (not (list? lst)) (empty? lst))
-          0
-          (if (sexp? (first lst))
-            (+ 1 (count-sexp? (rest lst)))
-            (count-sexp? (rest lst))
-            )
+  (if (or (not (list? lst)) (empty? lst))
+      0
+      (if (sexp? (first lst))
+          (+ 1 (count-sexp? (rest lst)))
+          (count-sexp? (rest lst))
           )
-        )
+      )
+  )
 
 (count-sexp? `(how are you doing so far))
 
@@ -114,4 +107,8 @@ guments. Each must be a non­
 numeric atom.
 |#
 
-(eq? (car l) a)
+(eq? (car `(Mary had a little lamb chop)) `milk)
+
+(let ([l `(beans beans we need jelly beans)])
+  (eq? (car l) (car (cdr l)))
+  )
