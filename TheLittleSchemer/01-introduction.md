@@ -1,3 +1,13 @@
+# Preface
+
+**Recursion** is the act of defining an object or solving a problem in terms of itself.
+
+```clojure
+(define atom?
+        (lambda (x)
+                (and (not (pair? x)) (not (null? x)))))
+```
+
 # introduction
 
 the **car ** returns the first element of the list.
@@ -13,5 +23,3 @@ The primitive **cons** takes two arguments.The second argument to cons must be a
 The primitive **null?** is defined only for lists.
 
 The primitive **eq?** takes two arguments.Each must be a non-numeric atom.
-
-
