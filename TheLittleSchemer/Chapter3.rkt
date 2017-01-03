@@ -201,3 +201,26 @@ When building a list, describe the first typical ele­ment,and then cons it onto
          '(a b c d f g d h))
         '(a b c e d f g e d h)
         )
+
+#|
+The Fourth C om m andm ent
+(preliminary)
+Always change at least one argument while recurring. It
+must be changed to be closer to termination. The changing
+argument must be tested in the termination condition:
+when using cdr, test termination with null?.
+|#
+
+(define (multisubst new old lat)
+  (cond
+    ((null? lat) `())
+    ((equal? old (car lat)) (cons new (multisubst new old (cdr lat))))
+    (else (cons (car lat) (multisubst new old (cdr lat))))
+    )
+  )
+
+(equal? (multisubst
+         'topping 'fudge
+         '(ice cream with fudge for dessert fudge))
+        '(ice cream with topping for dessert topping)
+        )
