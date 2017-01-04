@@ -68,6 +68,10 @@
 
 开头的Paxos算法讲的不是特别清楚，网上找了一些精彩的解释帮助理解，中间的一些应用介绍很拓展思路，zookeeper的api介绍的也不错。最后深入原理部分还没有看完。
 
+# 函数式语言发展历程
+
+[link](http://www-fp.cs.st-andrews.ac.uk/tifp/TFP2012/TFP_2012/Turner.pdf)
+
 ---
 
 # Changelog
