@@ -74,7 +74,12 @@ When recurring on a number, n, ask two questions about
 it: (zero? n) and else.
 |#
 
-
+#|
+The Fifth Commandment
+When building a value with + , always use 0 for the value of the terminating line, for adding 0 does not change the value of an addition.
+When building a value with x , always use 1 for the value of the terminating line, for multiplying by 1 does not change the value of a multiplication.
+When building a value with cons ,always consider () for the value of the terminating line.
+|#
 
 
 
