@@ -1,8 +1,10 @@
 #lang racket
 
-(require "Common.rkt")
-
-
+(define atom?
+  (lambda (x)
+    (and (not (pair? x))
+         (not (null? x))
+         )))
 
 ; The numbered? function determines whether a representation of an arithmetic
 ; expression contains only numbers besides the o+, ox and o^ (for +, * and exp).
@@ -33,20 +35,19 @@
 
 ; Assuming aexp is a numeric expression, numbered? can be simplified
 ;
-(define numbered?
-  (lambda (aexp)
+(define (numbered2? aexp)
     (cond
       ((atom? aexp) (number? aexp))
       (else
        (and (numbered? (car aexp))
-            (numbered? (car (cdr (cdr aexp)))))))))
+            (numbered? (car (cdr (cdr aexp))))))))
 
 ; Tests of numbered?
 ;
-(numbered? '5)                               ; #t
-(numbered? '(5 o+ 5))                        ; #t
-(numbered? '(5 ox (3 o^ 2)))                 ; #t
-(numbered? '((5 o+ 2) ox (3 o^ 2)))          ; #t
+(numbered2? '5)                               ; #t
+(numbered2? '(5 o+ 5))                        ; #t
+(numbered2? '(5 ox (3 o^ 2)))                 ; #t
+(numbered2? '((5 o+ 2) ox (3 o^ 2)))          ; #t
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;                                                                            ;
@@ -149,15 +150,15 @@
 
 ; Redefine helper functions for infix notation
 ;
-(define 1st-sub-exp
+(define 1st-sub-exp2
   (lambda (aexp)
     (car aexp)))
 
-(define 2nd-sub-exp
+(define 2nd-sub-exp2
   (lambda (aexp)
     (car (cdr (cdr aexp)))))
 
-(define operator
+(define operator2
   (lambda (aexp)
     (car (cdr aexp))))
 
@@ -205,7 +206,7 @@
       ((sero? m) n)
       (else
        (edd1 (.+ n (zub1 m)))))))
-    
+
 ; Example of .+
 ;
 (.+ '(()) '(() ()))     ; (+ 1 2)
@@ -225,5 +226,3 @@
 
 (tat? '((()) (()()) (()()())))  ; (lat? '(1 2 3))
 ; ==> #f
-
-

@@ -6,6 +6,4 @@
          (not (null? x))
          )))
 
-;(provide (atom? lat?))
-
 (provide (all-defined-out))

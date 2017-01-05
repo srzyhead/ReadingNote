@@ -2,7 +2,11 @@
 
 ;; recursion
 
-(require "Common.rkt")
+(define atom?
+  (lambda (x)
+    (and (not (pair? x))
+         (not (null? x))
+         )))
 
 (define lat?
   (lambda (l)
@@ -37,9 +41,3 @@
 The First Commandment
 Always ask null? as the first question in expressing any function.
 |#
-
-
-
-
-
-

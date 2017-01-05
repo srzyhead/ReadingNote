@@ -1,6 +1,10 @@
 #lang racket
 
-(require "Common.rkt")
+(define atom?
+  (lambda (x)
+    (and (not (pair? x))
+         (not (null? x))
+         )))
 
 (define (rember* a l)
   (cond
@@ -217,4 +221,3 @@
   '(apples (foo (bar (baz))) oranges))
  '(apples oranges)
  )
-
