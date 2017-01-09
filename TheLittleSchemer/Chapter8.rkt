@@ -60,6 +60,8 @@
 ((rember-f eq?) 2 '(1 2 3 4 5))
 ; ==> '(1 3 4 5)
 
+; currying is the technique of translating the evaluation of a function that takes multiple arguments (or a tuple of arguments) into evaluating a sequence of functions, each with a single argument.
+;
 ; Curry (rember-f eq?)
 ;
 (define rember-eq? (rember-f eq?))
