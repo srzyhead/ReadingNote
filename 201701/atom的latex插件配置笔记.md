@@ -33,6 +33,8 @@ sudo ./install-tl -gui
 
 ![](assets/atom的latex插件配置笔记-55949.png)
 
+- latex additional packages
+
 安装完成之后,添加环境变量,卸载镜像文件
 
 ```bash
