@@ -29,4 +29,4 @@ $
 \end{bmatrix}
 $
 
-The sum of $c\textbf{v}$ and $d\textbf{w}$ is a linear combination of $\textbf{v}$ and $\textbf{w}$
+The sum of $c\boldsymbol{v}$ and $d\boldsymbol{w}$ is a linear combination of $\boldsymbol{v}$ and $\boldsymbol{w}$
