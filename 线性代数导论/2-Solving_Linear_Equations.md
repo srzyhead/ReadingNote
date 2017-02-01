@@ -102,6 +102,68 @@ $$
 
 ## Inverse Matrices
 
-The matrix $A$ is **invertible** if there exists a matrix $A^{-1}$ such that $A^{-1}A=I$ and $AA^{-1}=I$
+The matrix $A$ is **invertible** if there exists a matrix $A^{-1}$ such that $$A^{-1}A=I$$ and $$AA^{-1}=I$$
 
- elimination produces n pivots $⇔$ the inverse exists $⇔$ non-singular matrix
+elimination produces n pivots $⇔$ the inverse exists $⇔$ non-singular matrix
+
+### The Inverse of a Product $AB$
+
+$$(AB)^{-1}=B^{-1}A^{-1}$$
+
+### Gauss-Jordan Elimination
+
+Multiply $\begin{bmatrix} A & I \end{bmatrix}$ by $A^{-1}$ to get $\begin{bmatrix} I & A^{-1} \end{bmatrix}$
+
+A square matrix is called **lower triangular matrix** if all the entries above the main diagonal are zero. Similarly, a square matrix is called **upper triangular matrix** if all the entries below the main diagonal are zero.A **triangular matrix** is one that is either lower triangular or upper triangular. A matrix that is both upper and lower triangular is called a **diagonal matrix**.
+
+*A triangular matrix is invertible if and only if no diagonal entries are zero*
+
+## Elimination = Factorization: $A = LU$
+
+The factors $L$ and $U$ are triangular matrices. The factorization that comes from elimination is $A = LU$ or $A=LDU$. This is elimination without row exchanges.
+
+## Transposes and Permutations
+
+The entry in row i, column j of AT comes from row j, column i of the original A : $(A^T)_{ij}=A_{ji}$
+
+- Sum
+
+$$A+B=A^T+B^T$$
+
+- Product
+
+$$(AB)^T=B^TA^T$$
+
+- Inverse
+
+$$(A^{-1})^T=(A^{T})^{-1}$$
+
+### The Meaning of Inner Products
+
+The dot product or inner product is $x^Ty$ (1 x n) (n x 1)
+
+The rank one product or outer product is $xy^T$ (n x 1) (1 x n)
+
+$x^Ty$ is a number, $xy^T$ is a matrix.
+
+### Symmetric Matrices
+
+A **symmetric matrix** has $A^T=A$
+
+*The inverse of a symmetric matrix is also symmetric.*
+
+### Symmetric Products $R^TR$ and $RR^T$ and $LDL^T$
+
+The transpose of $R^TR$ is $R^T(R^T)^T$ which is $R^TR$
+
+The symmetric factorization of a symmetric matrix is $A = LDL^T$
+
+### Permutation Matrices
+
+A **permutation matrix** $P$ has the rows of the identify $I$ in any order.
+
+$$P^T = P^{-1}$$
+
+### The $PA = LU$ Factorization with Row Exchanges
+
+If $A$ is invertible then a permutation $P$ will reorder its rows for $PA = LU$
