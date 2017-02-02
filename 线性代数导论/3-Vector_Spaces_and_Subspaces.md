@@ -44,3 +44,28 @@ $Ax=0$ has $r$ pivots and $n-r$ free variables.N(A) contains the $n-r$ special s
 | $r<n,r<m$ | $\begin{bmatrix} I & F \\ 0 & 0 \end{bmatrix}$ |     Not full rank     | 0 or ∞          |
 
 ## Independence, Basis and Dimension
+
+The columns of $A$ are independent if $x = 0$ is the only solution to $Ax = 0$.
+
+The vectors $v_1, \ldots , v_r$ **span** a space if their combinations fill that space.
+
+The sequence of vectors $v_1,\ldots,v_n$ is **linearly independent** if the only combination that gives the zero vector is $0v_1+0v_2+0v_3+\cdots+0v_n$.
+
+等价语句
+- elimination produces n pivots
+- the inverse exists
+- non-singular matrix
+- The column of $A$ are independent
+- the rank of $A$ equals to $n$
+- There are $n$ pivots and no free variables
+- Only $x=0$ is in the nullspace
+
+The *row space* of $A$ is $C (A^T)$. It is the *column space* of $A^T$.
+
+A **basis** for a vector space is a sequence of vectors with two properties: The basis vectors are linearly independent and they span the space.
+
+The **dimension** of the space is the number of vectors in every basis.
+
+## Dimensions of the Four Subspaces
+
+![](assets/3-Vector_Spaces_and_Subspaces-11e8b.png)
