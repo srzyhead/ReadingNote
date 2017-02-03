@@ -69,3 +69,25 @@ Symmetric matrices that have positive eigenvalues are called **positive definite
 3. All $n$ upper left determinants are positive
 4. $x^TAx$ is positive except at $x=0$.(This is the energy-based definition.)
 5. $A$ equals $R^TR$ for a matrix R with independent columns.
+
+$A = R^TR$ is automatically positive definite if $R$ has independent columns.
+
+## Similar Matrices
+
+Diagonalization is not possible for every $A$. Some matrices have too few eigenvectors. In this new section, the eigenvector matrix $S$ remains the best choice when we can find it, but now we allow any invertible matrix $M$.
+
+A typical matrix $A$ is similar to a whole family of other matrices because there are so many choices of $M$.
+
+Let $M$ be any invertible matrix. Then $B = M^{-1}AM$ is **similar** to $A$.
+
+## Singular Value Decomposition (SVD)
+
+The eigenvectors in $S$ have three big problems: They are usually not orthogonal, there are not always enough eigenvectors, and $Ax = λx$ requires $A$ to be square. The singular vectors of $A$ solve all those problems in a perfect way.
+
+$$A = UΣV^T$$
+
+The $u$'s are eigenvectors of $AA^T$ and the $v$'s are eigenvectors of $A^TA$.
+
+![](assets/6-EigenvaluesandEigenvectors-d3419.png)
+
+![](assets/6-EigenvaluesandEigenvectors-c7d74.png)
