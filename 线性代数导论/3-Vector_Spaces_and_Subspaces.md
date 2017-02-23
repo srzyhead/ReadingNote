@@ -69,3 +69,7 @@ The **dimension** of the space is the number of vectors in every basis.
 ## Dimensions of the Four Subspaces
 
 ![](assets/3-Vector_Spaces_and_Subspaces-11e8b.png)
+
+### Matrices of Rank One
+
+Every rank one matrix has the speicial form $A=uv^T$ column times row.
