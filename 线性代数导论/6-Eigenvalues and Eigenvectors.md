@@ -123,3 +123,22 @@ The $u$'s are eigenvectors of $AA^T$ and the $v$'s are eigenvectors of $A^TA$.
 ![](assets/6-EigenvaluesandEigenvectors-d3419.png)
 
 ![](assets/6-EigenvaluesandEigenvectors-c7d74.png)
+
+
+## Table of Eigenvalues and Eigenvectors
+
+![](assets/6-EigenvaluesandEigenvectors-6e76e.png)
+
+$$
+\begin{array}{lll}
+\text{Matrix} & \text{Eigenvalue Feature} & \text{Eigenvector Feature} \\
+\hline
+\mathbf{Symmetric:\ } A^T = A & \\
+\mathbf{Orthogonal:\ } Q^T = Q^{-1} \\
+\mathbf{Skew-symmetric:\ } A^T = -A \\
+\mathbf{Complex\ Hermitian:\ } \overline{A}^T = A \\
+\mathbf{Positive\ Definite:\ } x^TAx>0 \\
+\mathbf{Markov:\ } m_{ij} > 0, \sum_{i=1}^n m_{ij} = 1 \\
+\mathbf{Similar:\ } B= \\
+\end{array}
+$$
