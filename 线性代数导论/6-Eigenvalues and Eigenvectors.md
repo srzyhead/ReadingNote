@@ -117,7 +117,6 @@ The $u$'s are eigenvectors of $AA^T$ and the $v$'s are eigenvectors of $A^TA$.
 
 ![](assets/6-EigenvaluesandEigenvectors-c7d74.png)
 
-
 ## Table of Eigenvalues and Eigenvectors
 
 ![](assets/6-EigenvaluesandEigenvectors-6e76e.png)
