@@ -77,14 +77,7 @@ Remember that there is no connection between invertibility and diagonalizability
 
 ## Symmetric Matrices
 
-What is special about $Ax = λx$ when A is symmetric?
-
-1. A symmetric matrix has only *real eigenvalues*.
-2. The eigenvectors can be chosen *orthonormal*.
-
-Why do we use the word "choose"? Because the eigenvectors do not have to be unit vectors. Their lengths are at our disposal. We will choose unit vectors-eigenvectors of length one, which are orthonormal and not just orthogonal. Then $SΛS^{-1}$ is in its special and particular form $QΛQ^T$ for symmetric matrices.
-
-**Symmetric diagonalization** : Every symmetric matrix has the factorization $A=QΛQ^T=QΛQ^{-1}$ with real eigenvalues in $Λ$ and orthonormal eigenvectors in $S=Q$.
+**谱定理（Spectral Theorem）** : Every symmetric matrix has the factorization $A=QΛQ^T=QΛQ^{-1}$ with real eigenvalues in $Λ$ and orthonormal eigenvectors in $S=Q$.
 
 ### All Symmetric Matrices are Diagonalizable
 
