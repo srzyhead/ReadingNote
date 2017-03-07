@@ -120,11 +120,11 @@ A square matrix is called **lower triangular matrix** if all the entries above t
 
 ## Elimination = Factorization: $A = LU$
 
-The factors $L$ and $U$ are triangular matrices. The factorization that comes from elimination is $A = LU$ or $A=LDU$. This is elimination without row exchanges.
+The factors $L$ and $U$ are triangular matrices. The factorization that comes from elimination is $A = LU$ or $A=LDU$. This is elimination **without row exchanges**.
 
 ## Transposes and Permutations
 
-The entry in row i, column j of AT comes from row j, column i of the original A : $(A^T)_{ij}=A_{ji}$
+The entry in row i, column j of $A^T$ comes from row j, column i of the original A : $(A^T)_{ij}=A_{ji}$
 
 - Sum
 
@@ -154,7 +154,7 @@ A **symmetric matrix** has $A^T=A$
 
 ### Symmetric Products $R^TR$ and $RR^T$ and $LDL^T$
 
-The transpose of $R^TR$ is $R^T(R^T)^T$ which is $R^TR$
+ $(R^TR)^T = R^T(R^T)^T = R^TR  ⇒ R^TR $ is symmetric , so is $RR^T$
 
 The symmetric factorization of a symmetric matrix is $A = LDL^T$
 
@@ -162,7 +162,7 @@ The symmetric factorization of a symmetric matrix is $A = LDL^T$
 
 A **permutation matrix** $P$ has the rows of the identify $I$ in any order.
 
-$$P^T = P^{-1}$$
+$\because$ Permutation Matrices is orthonormal $\therefore P^T = P^{-1}$
 
 ### The $PA = LU$ Factorization with Row Exchanges
 
