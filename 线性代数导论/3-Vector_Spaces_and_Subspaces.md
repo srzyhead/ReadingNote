@@ -36,10 +36,6 @@ The rank of $A$ is the number of pivots.This number is $r$.
 
 $Ax=0$ has $r$ pivots and $n-r$ free variables.$N(A)$ contains the $n-r$ special solutions.
 
-## Rank One Matrix
-
-Every rank one matrix has the speicial form $A=uv^T$ column times row.
-
 ## The Complete Solution to $Ax = b$
 
 $$
@@ -67,6 +63,7 @@ The vectors $v_1, \ldots , v_r$ **span** a space if their combinations fill that
 The sequence of vectors $v_1,\ldots,v_n$ is **linearly independent** if the only combination that gives the zero vector is $0v_1+0v_2+0v_3+\cdots+0v_n$.
 
 等价语句
+
 - elimination produces n pivots
 - the inverse exists
 - non-singular matrix
@@ -92,4 +89,14 @@ $$
 
 ## Dimensions of the Four Subspaces
 
+求解$Ax=0$与四个空间的关系
+
 ![](assets/3-Vector_Spaces_and_Subspaces-11e8b.png)
+
+求解$Ax=b$与四个空间的关系
+
+![](assets/4-Orthogonality-c01c5.png)
+
+### Rank One Matrix
+
+Every rank one matrix has the speicial form $A=uv^T$ column times row.

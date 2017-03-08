@@ -1,11 +1,8 @@
 # Orthogonality
 
 ## Orthogonality of the Four Subspaces
-Two vectors are **orthogonal** when their dot product is zero: $v \cdot w = 0$ or $v^Tw = o$.
 
-![](assets/4-Orthogonality-dffde.png)
-
-![](assets/4-Orthogonality-c01c5.png)
+Two vectors are **orthogonal** when their dot product is zero: $v \cdot w = 0$ or $v^Tw = 0$.
 
 ## Projections
 
@@ -27,9 +24,11 @@ $$P = A (A^T A)^{-1}A^T$$
 
 $A^TA$ is invertible if and only if $A$ has linearly independent column.
 
-The projection matrix P has $P^T = P$ and $P^2 = P$.
+The projection matrix P has $P^T = P$ **对称(Symmetric)** and $P^2 = P$ **幂等性(Idempotence)**
 
 ### Least Squares Approximations
+
+The previous section emphasized $p$ (**the projection**). This section emphasizes $\hat x$ (**the least squares solution**).
 
 ![](assets/4-Orthogonality-3f2d8.png)
 
@@ -58,8 +57,22 @@ $Q^T = Q^{-1}$ and $\hat x = Q^Tb$ is the same as $x = Q^{-1} b$. The solution i
 
 ### The Gram-Schmidt Process
 
+$$
+\left\{
+\begin{array}{lll}
+A & = & a \\
+B & = & b-\cfrac{A^Tb}{A^TA}A \\
+C & = & c-\cfrac{A^Tc}{A^TA}A-\cfrac{B^Tc}{B^TB}B
+\end{array}
+\right.
+$$
+
 ![](assets/4-Orthogonality-d5d21.png)
 
 ### The Factorization $A = QR$
+
+Any $m$ by $n$ matrix $A$ with independent columns can be factored into $QR$.
+
+The least squares equation $A^TAx = A^Tb$ simplifies to $Rx = Q^Tb$
 
 From independent vectors $a_1,\ldots,a_n$,Gram-Schmidt constructs orthonormal vectors $q_1,\ldots,q_n$. The matrices with these columns satisfy $A=QR$.Then $R=Q^TA$ is **upper triangular** because later $q$'s are orthogonal to earlier $a$'s.

@@ -22,34 +22,14 @@ To solve the eigenvalue problem for an n by n matrix, follow these steps:
 > 矩阵A乘以x表示，对向量x进行一次转换（旋转或拉伸）（是一种线性转换），而该转换的效果为常数λ乘以向量x（即只进行拉伸）。
 我们通常求特征值和特征向量即为求出该矩阵能使哪些向量（当然是特征向量）只发生拉伸，使其发生拉伸的程度如何（特征值大小）。这样做的意义在于，看清一个矩阵在那些方面能产生最大的效果（power），并根据所产生的每个特征向量（一般研究特征值最大的那几个）进行分类讨论与研究。
 
-### 关于退化矩阵
 
-狭义的来说，仅限于方阵，退化矩阵和奇异矩阵对比起来还真的不一样。
-首先是奇异矩阵，它的等价定义是：
-- 行列式=0；
-- 不可逆；
-- 至少有一个特征值=0；
-- 非满秩 ...
+![](assets/6-EigenvaluesandEigenvectors-8d3d1.png)
 
-然后是退化矩阵。退化矩阵可以是满秩矩阵，也就是可逆，但特征向量的方向个数少于矩阵的size。例如这个2x2矩阵：
-$$
-\begin{bmatrix} 3 & 1 \\ 0 & 3 \end{bmatrix}
-$$
-它是秩为2的可逆矩阵；它的size是2；它有2个特征值，都是3；但是属于这2个特征值的特征向量都在同一个方向上，也就是说特征向量的方向个数是1，比它的size小。这就是一个典型的退化矩阵。
-这意味着什么呢？
-如果是奇异矩阵，那么特征值的个数和特征向量的方向个数都是小于size，那么经过这个矩阵的投影后，维度“坍缩”了；
-如果是退化矩阵，那么特征向量的方向个数都是小于size，特征值的个数不一定小于size，但维度的“坍缩”还是存在的。
+Reference:
 
-上例的矩阵就是可以看做一个线性变换，把二维的向量都投影到二维空间中的一维子空间内。
+[微分方程](http://wenku.baidu.com/view/ef58aa75f242336c1eb95e72.html)
 
-另外，需要注意的是，退化矩阵一定有相同的特征值，比如上例的矩阵的2个特征值都是3；但是具有相同特征值的矩阵不一定都是退化矩阵，例如：
-$$
-\begin{bmatrix} 3 & 0 \\ 0 & 3 \end{bmatrix}
-$$
-它也有2个特征值都是3，但具有2个不同方向的特征向量。
-
-那么，如果一个方针A有相同的特征值，如何判断是不是退化矩阵？
-记Lamda是A的多重特征值，重复个数是n。单位矩阵是I。观察矩阵  A - Lamda*I的零空间(Null Space)的维度是不是等于n。如果等于n，则A不是退化矩阵；如果小于n，则A是退化矩阵。
+[What do eigenvalues and eigenvectors represent intuitively?](https://www.quora.com/What-do-eigenvalues-and-eigenvectors-represent-intuitively)
 
 ## Diagonalizing a Matrix
 
