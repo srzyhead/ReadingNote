@@ -22,15 +22,6 @@ To solve the eigenvalue problem for an n by n matrix, follow these steps:
 > 矩阵A乘以x表示，对向量x进行一次转换（旋转或拉伸）（是一种线性转换），而该转换的效果为常数λ乘以向量x（即只进行拉伸）。
 我们通常求特征值和特征向量即为求出该矩阵能使哪些向量（当然是特征向量）只发生拉伸，使其发生拉伸的程度如何（特征值大小）。这样做的意义在于，看清一个矩阵在那些方面能产生最大的效果（power），并根据所产生的每个特征向量（一般研究特征值最大的那几个）进行分类讨论与研究。
 
-
-![](assets/6-EigenvaluesandEigenvectors-8d3d1.png)
-
-Reference:
-
-[微分方程](http://wenku.baidu.com/view/ef58aa75f242336c1eb95e72.html)
-
-[What do eigenvalues and eigenvectors represent intuitively?](https://www.quora.com/What-do-eigenvalues-and-eigenvectors-represent-intuitively)
-
 ## Diagonalizing a Matrix
 
 Suppose the $n$ by $n$ matrix $A$ has $n$ linearly independent eigenvectors $x_1,\ldots,x_n$.(**Without n independent eigenvectors, we can't diagonalize.**) Put them into the columns of an eigenvector matrix $S$. Eigenvalue matrix $Λ$
@@ -53,7 +44,53 @@ Remember that there is no connection between invertibility and diagonalizability
 
  $\begin{aligned} \textbf{Powers of }A \end{aligned} \qquad A^k =SΛ^kS^{-1}$
 
+### Nondiagonalizable Matrices
+
+**Eigenvectors (geometric)** There are nonzero solutions to $Ax = λx$
+**Eigenvalues (algebraic)** The determinant of $A - λI$ is zero
+
+The number A may be a simple eigenvalue or a multiple eigenvalue, we call this  **multiplicity**.
+
+**geometric multiplicity , GM** Count the independent eigenvectors for A. This is the dimension of the nullspace of $A - λI$
+
+**algebraic multiplicity , AM** Count the repetitions of $λ$ among the eigenvalues. Look at the $n$ roots of $det\ (A - λI) = 0$
+
+*when GM is below AM means that A is not diagonalizable*
+
 ## Applications to Differential Equations
+
+To convert **constant-coefficient differential equations** into linear algebra.
+
+### Solution of $du/dt = Au$
+
+$$Substitute \quad u= e^{kt}x \quad into \quad \cfrac{du}{dt} = Au\\
+\Downarrow \\
+ke^{kt}x=Ae^{kt}x \\
+\Downarrow \\
+kx=Ax \\
+\Downarrow \\
+k \text{ is eigenvalue } \quad x \text{ is eigenvector }
+$$
+
+$$
+u= e^{kt}x \quad ⇒ \quad u(t) = c_1e^{λ_1t}x_1 + \cdots + c_ne^{λ_nt}x_n
+$$
+
+### Stability of 2 by 2 Matrices
+
+![](assets/6-EigenvaluesandEigenvectors-8d3d1.png)
+
+Reference:
+
+[微分方程](http://wenku.baidu.com/view/ef58aa75f242336c1eb95e72.html)
+
+[What do eigenvalues and eigenvectors represent intuitively?](https://www.quora.com/What-do-eigenvalues-and-eigenvectors-represent-intuitively)
+
+### The Exponential of a Matrix
+
+$e^{At}$由无穷级数定义
+
+$$e^{At} = I + At + \cfrac{1}{2}(At)^2 + \cfrac{1}{6}(At)^3 + \cdots + \cfrac{1}{n!}(At)^n + \cdots $$
 
 ## Symmetric Matrices
 
