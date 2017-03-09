@@ -88,7 +88,7 @@ Reference:
 
 ### The Exponential of a Matrix
 
-$e^{At}$由无穷级数定义
+$e^{At}$由级数展开式定义
 
 $$e^{At} = I + At + \cfrac{1}{2}(At)^2 + \cfrac{1}{6}(At)^3 + \cdots + \cfrac{1}{n!}(At)^n + \cdots $$
 
@@ -96,9 +96,17 @@ $$e^{At} = I + At + \cfrac{1}{2}(At)^2 + \cfrac{1}{6}(At)^3 + \cdots + \cfrac{1}
 
 **谱定理（Spectral Theorem）** : Every symmetric matrix has the factorization $A=QΛQ^T=QΛQ^{-1}$ with real eigenvalues in $Λ$ and orthonormal eigenvectors in $S=Q$.
 
+### Eigenvalues versus Pivots
+
+product of pivots = determinant = product of eigenvalues
+
+For symmetric matrices the pivots and the eigenvalues have the same signs
+
 ### All Symmetric Matrices are Diagonalizable
 
-Every square matrix can be "triangularized" by $A = QTQ^{-1}$.
+The **Schur Decomposition** reads as follows: if $A$ is a $n × n$ square matrix with complex entries, then $A$ can be expressed as
+$$A=QUQ^{-1}$$
+where $Q$ is a unitary matrix (so that its inverse $Q^{−1}$ is also the conjugate transpose $Q^* $ of $Q$), and $U$ is an upper triangular matrix, which is called a **Schur form** of $A$. Since $U$ is similar to $A$, it has the same spectrum, and since it is triangular, those eigenvalues are the diagonal entries of $U$.
 
 ## Positive Definite Matrices
 
@@ -113,6 +121,20 @@ Symmetric matrices that have positive eigenvalues are called **positive definite
 5. $A$ equals $R^TR$ for a matrix R with independent columns.
 
 $A = R^TR$ is automatically positive definite if $R$ has independent columns.
+
+### Quadratic Form
+
+a **quadratic form(二次型)** is a homogeneous polynomial of degree two in a number of variables.
+
+$$
+\begin{array}{lll}
+q(x) & = ax^2 & \text{(unary)} \\
+q(x,y) & = ax^2 + bxy + cy^2 & \text{(binary)} \\
+q(x,y,z) & = ax^2 + by^2 + cz^2 + dxy + exz + fyz & \text{(ternary)}
+\end{array}
+$$
+
+$x^TAx$ 是二次型的矩阵形式
 
 ## Similar Matrices
 
