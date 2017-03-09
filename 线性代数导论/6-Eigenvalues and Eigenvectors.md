@@ -136,6 +136,32 @@ $$
 
 $x^TAx$ 是二次型的矩阵形式
 
+二次型的主要用途：
+
+- 不等式证明（比起拿各种公式凑，用这个证明简直不要太简单）
+
+- 多项式的因式分解
+
+- 判断二次曲线的形状
+
+- 曲面在平面上截取的曲线
+
+- 求极值
+
+[参考:二次型及其应用](https://wenku.baidu.com/view/50a41aba6294dd88d0d26bcd.html)
+
+Definite $A = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}$ 对应函数 $z=x^2+y^2$
+
+![](assets/6-EigenvaluesandEigenvectors-834a2.png)
+
+$A = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix}$ 对应函数 $z=x^2-y^2$
+
+![](assets/6-EigenvaluesandEigenvectors-dabd7.png)
+
+Indefinite $A = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}$ 对应函数 $z=2xy$
+
+![](assets/6-EigenvaluesandEigenvectors-651fd.png)
+
 ## Similar Matrices
 
 Diagonalization is not possible for every $A$. Some matrices have too few eigenvectors. In this new section, the eigenvector matrix $S$ remains the best choice when we can find it, but now we allow any invertible matrix $M$.
