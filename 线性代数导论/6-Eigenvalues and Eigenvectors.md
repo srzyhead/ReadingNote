@@ -94,7 +94,19 @@ $$e^{At} = I + At + \cfrac{1}{2}(At)^2 + \cfrac{1}{6}(At)^3 + \cdots + \cfrac{1}
 
 ## Symmetric Matrices
 
+Spectrum of A The set of eigenvalues $\{λ_1,\cdots,λ_m\}$. Spectral radius $= |λ_{max}|$
+
 **谱定理（Spectral Theorem）** : Every symmetric matrix has the factorization $A=QΛQ^T=QΛQ^{-1}$ with real eigenvalues in $Λ$ and orthonormal eigenvectors in $S=Q$.
+
+Every real symmetric $A$ can be diagonalized by an orthogonal matrix $Q$. Every Hermitian matrix can be diagonalized by a unitary $U$:
+
+$$
+\begin{array}{rlll}
+(real)    & Q^{-1}AQ = Λ & or & A = QΛQ^T \\
+(complex) & U^{-1}AU = Λ & or & A = UΛU^H
+\end{array}
+$$
+The columns of $Q$ (or $U$) contain orthonormal eigenvectors of $A$
 
 ### Eigenvalues versus Pivots
 
@@ -174,9 +186,27 @@ Let $M$ be any invertible matrix. Then $B = M^{-1}AM$ is **similar** to $A$.
 
 The eigenvectors in $S$ have three big problems: They are usually not orthogonal, there are not always enough eigenvectors, and $Ax = λx$ requires $A$ to be square. The singular vectors of $A$ solve all those problems in a perfect way.
 
-$$A = UΣV^T$$
+**Singular Value Decomposition** : Any $m$ by $n$ matrix A can be factored into
+$$
+A = UΣV^T = (\boldsymbol{orthogonal})(\boldsymbol{diagonal})(\boldsymbol{orthogonal})
+$$
+The columns of $U$ ($m$ by $m$) are eigenvectors of $AA^T$, and the columns of $V$ ($n$ by $n$) are eigenvectors of $A^TA$. The $r$ **singular values** on the diagonal of $Σ$ ($m$ by $n$) are the square roots of the nonzero eigenvalues of both $AA^T$ and $A^TA$.
 
-The $u$'s are eigenvectors of $AA^T$ and the $v$'s are eigenvectors of $A^TA$.
+**Remark 1.** For positive definite matrices, $Σ$ is $Λ$ and $UΣV^T$ is identical to $QΛQ^T$. For other symmetric matrices, any negative eigenvalues in $Λ$ become positive in $Σ$. For complex matrices, $Σ$ remains real but $U$ and $V$ become unitary (the complex version of orthogonal). We take complex conjugates in $U^HU = I$ and $V^HV = I$ and $A = UΣV^H$.
+
+**Remark 2.** $U$ and $V$ give orthonormal bases for all four fundamental subspaces:
+$$
+\begin{array}{ccl}
+first & r   & \text{columns of U :} & \text{column space}   & of\ A \\
+last  & m-r & \text{columns of U :} & \text{left nullspace} & of\ A \\
+first & r   & \text{columns of V :} & \text{row space}      & of\ A \\
+last  & n-r & \text{columns of V :} & \text{nullspace}      & of\ A \\
+\end{array}
+$$
+
+**Remark 3.** The $SVD$ chooses those bases in an extremely special way. They are more than just orthonormal. When $A$ multiplies a column $v_j$ of $V$ , it produces $σ_j$ times a column of $U$. That comes directly from $AV = UΣ$, looked at a column at a time.
+
+at a time : 依次
 
 ![](assets/6-EigenvaluesandEigenvectors-d3419.png)
 

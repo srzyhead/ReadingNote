@@ -89,6 +89,12 @@ $$
 
 ## Dimensions of the Four Subspaces
 
+$N(A^T)$称为 **Left Nullspace(左零空间)** 的原因:
+
+$$A^Tx=0 \quad ⇒ \quad (A^Tx)^T=0^T \quad ⇒ \quad x^TA=0$$
+
+即x为左乘A的解
+
 求解$Ax=0$与四个空间的关系
 
 ![](assets/3-Vector_Spaces_and_Subspaces-11e8b.png)
