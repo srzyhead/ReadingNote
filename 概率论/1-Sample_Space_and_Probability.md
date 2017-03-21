@@ -141,10 +141,14 @@ Bayes’ rule is often used for **inference**. There are a number of “causes�
 **先验** 在拉丁文中指“来自先前的东西”，或稍稍引申指“在经验之前”。近代西方传统中，认为先验指无需经验或先于经验获得的知识。它通常与后验知识相比较，**后验** 意指“在经验之后”，需要经验。这一区分来自于中世纪逻辑所区分的两种论证，从原因到结果的论证称为“先验的”，而从结果到原因的论证称为“后验的”。
 **先验概率** 是指根据以往经验和分析得到的概率，如全概率公式，它往往作为“由因求果”问题中的“因”出现。**后验概率** 是指在得到“结果”的信息后重新修正的概率，是“执果寻因”问题中的“因” 。后验概率是基于新的信息，修正原来的先验概率后所获得的更接近实际情况的概率估计。先验概率和后验概率是相对的。如果以后还有新的信息引入，更新了现在所谓的后验概率，得到了新的概率值，那么这个新的概率值被称为后验概率。
 
-## INDEPENDENCE
+## Independence
 
-$$\text{ A is independent of B } \qquad \Longleftrightarrow \qquad P(A∩B)=P(A)P(B)$$
+$$\text{ A is independent of B} \qquad \Longleftrightarrow \qquad P(A∩B)=P(A)P(B)$$
 
-if $A$ and $B$ are independent, the occurrence of $B$ does not provide any new information on the probability of $A$ occurring. It is then intuitive that the non-occurrence of $B$ should also provide no information on the probability of $A$. Indeed, it can be verified that if $A$ and $B$ are independent.
+if $A$ and $B$ are independent, the occurrence of $B$ does not **provide any new information** on the probability of $A$ occurring. It is then intuitive that the non-occurrence of $B$ should also provide no information on the probability of $A$. Indeed, it can be verified that if $A$ and $B$ are independent.
 
 ### Conditional Independence
+
+**conditionally independent**
+
+$$P(A∩B|C) = P(A|C)P(B|C)$$
