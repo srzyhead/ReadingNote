@@ -110,7 +110,7 @@ $$P(A|B) = \cfrac{P(A∪B)}{P(B)}$$
 
 Assuming that all of the conditioning events have positive probability, we
 have
-$$P(∩_ {i=1}^nA_i)=i AA = P(A_1)P(A_2|A_1)P(A3|A_1∩A_2) \cdots P(A_n| ∩_ {i=1}^nA_i)$$
+$$P(∩_ {i=1}^nA_i) = P(A_1)P(A_2|A_1)P(A3|A_1∩A_2) \cdots P(A_n| ∩_ {i=1}^nA_i)$$
 
 ## Total Probability Theorem and Baye's Rule
 
@@ -149,6 +149,54 @@ if $A$ and $B$ are independent, the occurrence of $B$ does not **provide any new
 
 ### Conditional Independence
 
-**conditionally independent**
+Given an event $C$ , th events $A$ and $B$ are called **conditionally independent** if $P(A∩B|C) = P(A|C)P(B|C)$
+$$
+\left.
+\begin{array}{l}
+P(B|C)≠0 \\
+P(A∩B|C) = P(A|C)P(B|C)
+\end{array}
+\right\}
+⇒ P(A|B∩C)=P(A|C)
+$$
 
-$$P(A∩B|C) = P(A|C)P(B|C)$$
+Explain from information theory : this relation states that if C is known to have occurred, the additional
+knowledge that B also occurred does not change the probability of A.
+
+**independence of two events A and B does not imply conditional independence, and vice versa.**
+
+### Independence of a Collection of Events
+
+definition of independence of several events
+
+We say that the events $A_1,\ldots ,A_n$ are independent if
+
+$$P\left(\bigcap_{i∈S}A_i\right)=\prod{P(A_i)} \text{ for every subset S of } \{1,2,\ldots,n\}$$
+
+For the case of three events, A\, A2, and ^43, independence amounts to
+satisfying the four conditions
+$$
+\begin{array}{c}
+P(A_1∩A_2)=P(A_1)P(A_2) \\
+P(A_1∩A_3)=P(A_1)P(A_3) \\
+P(A_2∩A_3)=P(A_2)P(A_3) \\
+P(A_1∩A_2∩A_3)=P(A_1)P(A_2)P(A_3)
+\end{array}
+$$
+
+The first three conditions simply assert that any two events are independent,
+a property known as **pairwise independence(成对独立性)**.But the fourth condition is also important and does not follow from the first three.
+
+**Independence means that the occurrence or non-occurrence of any number of the events from that collection carries no information on the remaining events or their complements.**
+
+### Independent Trials and the Binomial Probabilities
+
+The numbers $C_n^k$ (read as “$n$ choose $k$”) are known as the binomial coefficients.
+
+$$C_n^k= \cfrac{n!}{k!(n-k)!} \qquad k=0,1,\ldots,n$$
+
+## Counting
+
+$$A_n^k =  \cfrac{n!}{(n-k)!} \qquad k=0,1,\ldots,n $$
+
+$$\sum_{k=1}^{n}{kC_n^k} = n 2^{n-1}$$
