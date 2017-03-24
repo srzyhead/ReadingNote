@@ -78,3 +78,73 @@ $$var(X)=\sum_x(x-E[X])^2p_X(x)$$
 ### Properties of Mean and Variance
 
 $$var(X) = E[X^2] - (E[X])^2$$
+
+### Independence of Random Variables
+
+random variables $X$ and $Y$ are independent if
+
+$$p_{X,Y}(x,y) = P_X(x)p_Y(y) \qquad \text{for all x,y}$$
+
+conditionally independent
+
+$$p_{X,Y|A}(x,y) = P_{X|A}(x)p_{Y|A}(y) \qquad \text{for all x,y}$$
+
+### Independence of Several Random Variables
+
+$$p_{X,Y,Z}(x.y.z) = p_{X}(x)p_{Y}(y)p_{Z}(z) \qquad \text{for all x,y,z}$$
+
+## Summary of Results for Special Random Variables
+
+**Discrete Uniform over $[a, b]$**
+
+$$
+p_X(k)=
+\begin{cases}
+\cfrac{1}{b-a+1}   & \text{if $k = a,a+1,\ldots,b$} \\
+0 & \text{otherwise}
+\end{cases}
+$$
+
+$$
+E[X] = \cfrac{a+b}{2} \qquad var(X) =  \cfrac{(b-a)(b-a+2)}{12}
+$$
+
+**Bernoulli with Parameter** p: (Describes the success or failure in a single trial.)
+
+$$
+p_X(k)=
+\begin{cases}
+p   & \text{if $k = 1$} \\
+1-p & \text{if $k = 0$}
+\end{cases}
+$$
+
+$$
+E[X] = p \qquad var(X) = p(1-p)
+$$
+
+**Binomial with Parameters p and n**: (Describes the number of successes in $n$ independent Bernoulli trials.)
+
+$$p_X(k) = C_n^k p^k (1-p)^{n-k} \qquad k = 0,1,\ldots,n$$
+
+$$
+E[X] = np \qquad var(X) = np(1-p)
+$$
+
+**Geometric with Parameter p**: (Describes the number of trials until the
+first success, in a sequence of independent Bernoulli trials.)
+
+$$p_X(k) = (1-p)^{k-1}p \qquad k = 0,1,\ldots$$
+
+$$
+E[X] = \cfrac{1}{p} \qquad var(X) = \frac{1-p}{p^2}
+$$
+
+**Poisson with Parameter $λ$**: (Approximates the binomial PMF when n
+is large, p is small, and $λ = np$.)
+
+$$p_X(k) = e^{-λ}\cfrac{λ^k}{k!} \qquad k = 0,1,\ldots$$
+
+$$
+E[X] = λ \qquad var(X) = λ
+$$
