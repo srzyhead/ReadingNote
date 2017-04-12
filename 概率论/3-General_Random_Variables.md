@@ -56,4 +56,7 @@ F_X(x)=P(X ≤ x) =
 \end{array} \right.
 $$
 
-Properties of a CDF
+### The Geometric and Exponential CDFs
+
+
+![](assets/3-General_Random_Variables-27113.png)
