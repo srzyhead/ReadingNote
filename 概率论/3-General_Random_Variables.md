@@ -58,5 +58,4 @@ $$
 
 ### The Geometric and Exponential CDFs
 
-
-![](assets/3-General_Random_Variables-27113.png)
+### The Standard Normal Random Variable
