@@ -59,3 +59,13 @@ $$
 ### The Geometric and Exponential CDFs
 
 ### The Standard Normal Random Variable
+
+## JOINT PDFS OF MULTIPLE RANDOM VARIABLES
+
+$$P((X,Y)∈B) = \iint_{x,y∈B}f_{X,Y}(x,y)\ dx\ dy$$
+
+## CONDITIONING
+
+### Conditioning a Random Variable on an Event
+
+$$P(X∈B \mid A) = \int_B f_{X \mid A}(x)\ dx$$
