@@ -59,7 +59,13 @@ $$E[X] = \sum_x{xp_X(x)}$$
 
 In mathematics, a **moment(矩)** is a specific quantitative measure, used in both mechanics and statistics, of the shape of a set of points. If the points represent probability density, then the zeroth moment is the total probability (i.e. one), the first moment is the **mean(平均数)**, the second central moment is the **variance(方差)**, the third central moment is the **skewness(偏度)**, and the fourth central moment (with normalization and shift) is the **kurtosis(峰度)**.
 
-$$var(X)=E\left[ (X-E(X)^2 \right]$$
+$$var(X)=E\left[ (X-E(X))^2 \right]$$
+
+>tip ： moment这块概念挺多，挺乱，详见[wiki](https://en.wikipedia.org/wiki/Moment_(mathematics))
+
+The variance can also be thought of as the covariance of a random variable with itself.
+
+$$cov(X)=E\left[ (X-E(X))(X-E(X)) \right]$$
 
 **standard deviation** of $X$
 
