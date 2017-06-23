@@ -66,29 +66,46 @@ li {margin-top: 10px; margin-bottom: 20px;}
 h1 {margin-top: 28px;}
 ```
 
-Negative margins
+#### Negative margins
+
 Negative margins do have an impact on vertical formatting, and they affect how mar-
 gins are collapsed.
 
 ## Inline Elements
 
 ### Basic Terms and Concepts
-			Anonymous text
-				This is any string of characters that is not contained within an inline element.Thus, in the markup <p> I'm <em>so</em> happy!</p> , the sequences “ I’m ” and “ happy!” are anonymous text. Note that the spaces are part of the text since a space is a character like any other.
-			Em box
-				This is defined in the given font, otherwise known as the character box.
-			Content area
-				In nonreplaced elements,it's the em box.
-				In replaced elements, the content area is the intrinsic height of the element plus any margins, borders, or padding.
-			Leading
-				The leading is the difference between the values of font-size and line-height .
-				This difference is actually divided in half and applied to the top and bottom of the content area.
-				Leading is not applied to replaced elements
-			Inline box
-				This is the box described by the addition of the leading to the content area.
-				nonreplaced elements
-					line-height
-				replaced elements
-					the content area
-			Line box
-				This is the shortest box that bounds the highest and lowest points of the inline boxes that are found in the line.
+
+#### Anonymous text
+
+This is any string of characters that is not contained within an inline element.Thus, in the markup <p> I'm <em>so</em> happy!</p> , the sequences “ I’m ” and “ happy!” are anonymous text. Note that the spaces are part of the text since a space is a character like any other.
+
+#### Em box
+
+This is defined in the given font, otherwise known as the character box.
+
+#### Content area
+
+In nonreplaced elements,it's the em box.
+In replaced elements, the content area is the intrinsic height of the element plus any margins, borders, or padding.
+
+#### Leading
+
+The leading is the difference between the values of font-size and line-height .
+This difference is actually divided in half and applied to the top and bottom of the content area.
+Leading is not applied to replaced elements
+
+#### Inline box
+
+This is the box described by the addition of the leading to the content area.
+
+- nonreplaced elements
+
+	line-height
+
+- replaced elements
+
+	the content area
+
+#### Line box
+
+This is the shortest box that bounds the highest and lowest points of the inline boxes that are found in the line.

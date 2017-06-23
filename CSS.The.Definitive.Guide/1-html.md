@@ -13,3 +13,12 @@
 **Block-level elements** generate an element box that (by default) fills its parent element’s content area and cannot have other elements at its sides.
 
 **Inline-level elements** generate an element box within a line of text and do not break up the flow of that line.
+
+## tips
+
+- HTML 元素会按照它们各自在标记中出现的先后顺序,依次从页面上方“流向”下方。
+- 块级元素,比如段落、标题、列表等,在浏览器中上下堆叠显示。
+- 行内元素,比如 a 、 span 和 img ,在浏览器中左右并排显示,只有前一行没有空间时才会显示到下一行。
+- `<strong>` 标签表示重要,默认以粗体显示。
+- `<em>` 标签表示强调,默认以斜体显示。
+- `<abbr>` 标签表示简写,在 Firefox 中默认会加上点下划线。
