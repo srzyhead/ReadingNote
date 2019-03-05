@@ -77,11 +77,19 @@ $A(BC)=(AB)C$ (associative law for ABC)
 Suppose $A, B, C, D$ are respectively $p×p$, $p×q$, $q×p$ and $q×q$ matrices, and $D$ is invertible.
 
 $$
+Ax =
+\begin{bmatrix}
+(row1) \cdot x \\
+(row2) \cdot x \\
+(row3) \cdot x \\
+\end{bmatrix}
+$$
+
+$$
 \begin{bmatrix}
 A & B \\
 C & D \\
-\end{bmatrix}
-=
+\end{bmatrix} =
 \begin{bmatrix}
 I_p & BD^{-1} \\
 0 & I_q \\

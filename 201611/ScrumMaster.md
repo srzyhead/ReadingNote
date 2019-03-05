@@ -1,5 +1,7 @@
 ## Scrum Master 问答
 
+![](assets/ScrumMaster-e5756.png)
+
 ### 1. 实施Scrum模式的好处有哪些？
 
 - 降低变更对系统造成的风险
