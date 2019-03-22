@@ -5,3 +5,5 @@
 ![](assets/CheatSheet-d59d3.png)
 
 ![](assets/CheatSheet-c5b7f.png)
+
+![](assets/CheatSheet-e5811.png)
